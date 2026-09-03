@@ -1,0 +1,3 @@
+storage_class        = "local-path"
+postgres_storage_size = "20Gi"
+redis_storage_size   = "5Gi"

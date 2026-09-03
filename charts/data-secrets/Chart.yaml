@@ -1,0 +1,6 @@
+apiVersion: v2
+name: data-secrets
+description: ExternalSecret resources for Talay data services
+type: application
+version: 0.1.0
+appVersion: "1.0"

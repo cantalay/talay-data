@@ -1,0 +1,8 @@
+refreshInterval: 1h
+secretStore:
+  name: vault
+  kind: ClusterSecretStore
+postgresql:
+  remoteKey: platform/postgresql
+redis:
+  remoteKey: platform/redis
