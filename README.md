@@ -2,6 +2,8 @@
 
 Tek-node K3s için PostgreSQL ve Redis kurar. Parolalar Terraform değişkeni veya state'i yerine `ClusterSecretStore/vault` üzerinden External Secrets Operator ile alınır.
 
+Root stack `modules/postgresql`, `modules/redis` ve bu iki release'in mevcut secret sözleşmesini koruyan `modules/data-secrets` modüllerini çağırır.
+
 Vault'ta beklenen alanlar:
 
 ```text
