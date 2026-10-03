@@ -26,13 +26,17 @@ resource "helm_release" "redis" {
         annotations  = { "helm.sh/resource-policy" = "keep" }
       }
       resources = {
-        requests = { cpu = "50m", memory = "128Mi" }
+        requests = { cpu = "40m", memory = "128Mi" }
         limits   = { memory = "512Mi" }
       }
       pdb = { create = false }
     }
     metrics = {
       enabled = true
+      resources = {
+        requests = { cpu = "10m", memory = "16Mi" }
+        limits   = { memory = "64Mi" }
+      }
       service = {
         annotations = {
           "prometheus.io/scrape" = "true"

@@ -30,7 +30,7 @@ resource "helm_release" "postgresql" {
         annotations  = { "helm.sh/resource-policy" = "keep" }
       }
       resources = {
-        requests = { cpu = "100m", memory = "256Mi" }
+        requests = { cpu = "50m", memory = "256Mi" }
         limits   = { memory = "1Gi" }
       }
       pdb = { create = false }
@@ -50,6 +50,10 @@ resource "helm_release" "postgresql" {
     }
     metrics = {
       enabled = true
+      resources = {
+        requests = { cpu = "10m", memory = "48Mi" }
+        limits   = { memory = "128Mi" }
+      }
       service = {
         annotations = {
           "prometheus.io/scrape" = "true"
