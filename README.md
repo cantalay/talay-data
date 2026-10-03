@@ -47,3 +47,4 @@ almadan önce bu tabloyu güncelleyin.
 | Index | Proje | Not |
 | --- | --- | --- |
 | 0 | — | Varsayılan index; eski kullanımlar olabilir, yeni uygulamalara verilmez |
+| 1 | vitafinder | api, worker (`vitafinder:` prefix) |
