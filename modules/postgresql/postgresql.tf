@@ -34,6 +34,21 @@ resource "helm_release" "postgresql" {
         limits   = { memory = "1Gi" }
       }
       pdb = { create = false }
+      # exec pg_isready her çağrıda runc exec + Postgres backend fork'u demek; düşük CPU'da probe'un kendisi yük
+      # oluyordu. TCP kontrolü kubelet içinden yapılır, container'da süreç başlatmaz.
+      customLivenessProbe = {
+        tcpSocket           = { port = "tcp-postgresql" }
+        initialDelaySeconds = 30
+        periodSeconds       = 30
+        timeoutSeconds      = 10
+        failureThreshold    = 6
+      }
+      customReadinessProbe = {
+        tcpSocket        = { port = "tcp-postgresql" }
+        periodSeconds    = 15
+        timeoutSeconds   = 10
+        failureThreshold = 6
+      }
     }
     backup = {
       enabled = var.backup_enabled

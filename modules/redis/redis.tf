@@ -30,6 +30,20 @@ resource "helm_release" "redis" {
         limits   = { memory = "512Mi" }
       }
       pdb = { create = false }
+      # Varsayılan probe'lar 5 sn'de bir bash + redis-cli exec ediyor; TCP kontrolü container'da süreç başlatmaz.
+      customLivenessProbe = {
+        tcpSocket           = { port = "redis" }
+        initialDelaySeconds = 20
+        periodSeconds       = 30
+        timeoutSeconds      = 10
+        failureThreshold    = 6
+      }
+      customReadinessProbe = {
+        tcpSocket        = { port = "redis" }
+        periodSeconds    = 15
+        timeoutSeconds   = 10
+        failureThreshold = 6
+      }
     }
     metrics = {
       enabled = true
