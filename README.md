@@ -48,3 +48,4 @@ almadan önce bu tabloyu güncelleyin.
 | --- | --- | --- |
 | 0 | — | Varsayılan index; eski kullanımlar olabilir, yeni uygulamalara verilmez |
 | 1 | vitafinder | api, worker (`vitafinder:` prefix) |
+| 2 | financefollower | api, analytics (`financefollower:` prefix) |
