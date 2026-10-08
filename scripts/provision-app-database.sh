@@ -9,12 +9,12 @@
 # Ortam:
 #   APPLY=true            değişiklikleri uygula (yoksa yalnız plan)
 #   VAULT_ADDR            varsayılan https://vault.cantalay.com (geçerli vault token gerekir: vault login -method=oidc)
-#   TALAY_HOST            varsayılan 45.87.80.10 (kubectl SSH üzerinden çalışır)
+#   TALAY_HOST            varsayılan 152.53.66.101 (kubectl SSH üzerinden çalışır)
 #   TALAY_KUBE_MODE=local kubectl'i lokal KUBECONFIG ile çalıştır (SSH yerine)
 set -euo pipefail
 
 export VAULT_ADDR="${VAULT_ADDR:-https://vault.cantalay.com}"
-TALAY_HOST="${TALAY_HOST:-45.87.80.10}"
+TALAY_HOST="${TALAY_HOST:-152.53.66.101}"
 VAULT_MOUNT="${VAULT_MOUNT:-kv}"
 APPLY="${APPLY:-false}"
 
